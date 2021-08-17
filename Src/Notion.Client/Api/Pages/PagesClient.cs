@@ -18,6 +18,13 @@ namespace Notion.Client
             return await _client.PostAsync<Page>(PagesApiUrls.Create(), page);
         }
 
+        public async Task<Page> DeleteAsync(string pageId)
+        {
+            var url = PagesApiUrls.UpdateProperties(pageId);
+            var body = new DeletePage();
+            return await _client.PatchAsync<Page>(url, body);
+        }
+
         public async Task<Page> RetrieveAsync(string pageId)
         {
             var url = PagesApiUrls.Retrieve(pageId);

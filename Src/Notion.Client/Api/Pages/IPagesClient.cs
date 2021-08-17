@@ -6,6 +6,7 @@ namespace Notion.Client
     public interface IPagesClient
     {
         Task<Page> CreateAsync(NewPage page);
+        Task<Page> DeleteAsync(string pageId);
         Task<Page> RetrieveAsync(string pageId);
 
         Task<Page> UpdatePropertiesAsync(
